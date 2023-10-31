@@ -14,15 +14,27 @@
  */
 
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
 const FormHeader = () => {
+  const router = useRouter();
+
   return (
     <section className="flex flex-col items-center gap-y-4">
-      <Image src={"/logo.svg"} alt="logo" width={105} height={100} />
+      <Image
+        src={"/logo.svg"}
+        alt="logo"
+        width={105}
+        height={100}
+        onClick={() => router.push("/")}
+        className="cursor-pointer"
+      />
 
       <article className="flex flex-col items-center gap-y-2.5">
-        <h1 className="text-4xl font-semibold text-center">Take your First Step</h1>
+        <h1 className="text-4xl font-semibold text-center">
+          Take your First Step
+        </h1>
         <p className="text-2xl font-medium text-center">Join TalenGen Now</p>
       </article>
     </section>
