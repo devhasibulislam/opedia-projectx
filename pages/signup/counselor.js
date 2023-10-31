@@ -15,11 +15,15 @@
 
 import Button from "@/components/Button";
 import Layout from "@/components/Layout";
+import Head from "next/head";
 import React from "react";
 
 const counselor = () => {
   return (
     <Layout>
+      <Head>
+        <title>Sign Up by Counselor Account</title>
+      </Head>
       <form
         className="flex flex-col gap-y-2"
         onSubmit={(event) => {

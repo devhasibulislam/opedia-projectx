@@ -17,6 +17,7 @@ import Button from "@/components/Button";
 import Layout from "@/components/Layout";
 import universities from "@/data/universities";
 import years from "@/data/years";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -25,6 +26,9 @@ const StudentAlumni = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Sign Up by Student or Alumni Account</title>
+      </Head>
       <form
         className="flex flex-col gap-y-2"
         onSubmit={(event) => {

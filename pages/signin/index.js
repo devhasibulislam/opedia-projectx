@@ -16,11 +16,15 @@
 import Layout from "@/components/Layout";
 import Part01 from "@/components/signin/Part01";
 import Part02 from "@/components/signin/Part02";
+import Head from "next/head";
 import React from "react";
 
 const signin = () => {
   return (
     <Layout className="">
+      <Head>
+        <title>Sign In Your Account</title>
+      </Head>
       {/* Signin Form */}
       <div className="flex flex-col gap-y-6">
         <Part01 />

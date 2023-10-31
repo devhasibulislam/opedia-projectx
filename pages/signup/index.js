@@ -16,11 +16,15 @@
 import Layout from "@/components/Layout";
 import Part01 from "@/components/signup/Part01";
 import Part02 from "@/components/signup/Part02";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <>
       <Layout className="">
+        <Head>
+          <title>Sign Up Your Account</title>
+        </Head>
         {/* Signup Form */}
         <div className="flex flex-col gap-y-6">
           <Part01 />

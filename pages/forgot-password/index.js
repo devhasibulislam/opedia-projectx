@@ -14,6 +14,7 @@
  */
 
 import Button from "@/components/Button";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -22,6 +23,9 @@ const ResetPassword = () => {
 
   return (
     <section className="h-screen w-full flex flex-row justify-center items-center">
+      <Head>
+        <title>Reset Your Password</title>
+      </Head>
       <form
         className="max-w-3xl mx-auto px-4 flex flex-col gap-y-8"
         onSubmit={(event) => {

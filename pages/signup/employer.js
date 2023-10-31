@@ -15,11 +15,15 @@
 
 import Button from "@/components/Button";
 import Layout from "@/components/Layout";
+import Head from "next/head";
 import React from "react";
 
 const Employer = () => {
   return (
     <Layout>
+      <Head>
+        <title>Sign Up by Employer Account</title>
+      </Head>
       <form
         className="flex flex-col gap-y-2"
         onSubmit={(event) => {
@@ -50,7 +54,7 @@ const Employer = () => {
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
-        
+
         {/* Enter Designation */}
         <label htmlFor="name" className="flex flex-col gap-y-1.5">
           <p className="">Enter your position name*</p>
@@ -61,7 +65,7 @@ const Employer = () => {
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
-        
+
         {/* Enter Contact Number */}
         <label htmlFor="name" className="flex flex-col gap-y-1.5">
           <p className="">Enter your preferred contact number*</p>
@@ -72,7 +76,7 @@ const Employer = () => {
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
-        
+
         {/* Enter Registration Number */}
         <label htmlFor="name" className="flex flex-col gap-y-1.5">
           <p className="">Enter your registration number*</p>
