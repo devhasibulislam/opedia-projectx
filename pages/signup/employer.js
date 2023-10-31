@@ -27,7 +27,7 @@ const Employer = () => {
           router.push("/signin");
         }}
       >
-        <h2 className="text-2xl font-medium">Students & Alumni</h2>
+        <h2 className="text-2xl font-medium">Employer</h2>
 
         {/* Enter Name */}
         <label htmlFor="name" className="flex flex-col gap-y-1.5">
