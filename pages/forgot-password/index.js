@@ -16,10 +16,12 @@
 import Button from "@/components/Button";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../_app";
 
 const ResetPassword = () => {
   const router = useRouter();
+  const { setUser } = useContext(UserContext);
 
   return (
     <section className="h-screen w-full flex flex-row justify-center items-center">
@@ -30,7 +32,8 @@ const ResetPassword = () => {
         className="max-w-3xl mx-auto px-4 flex flex-col gap-y-8"
         onSubmit={(event) => {
           event.preventDefault();
-          router.push("/");
+          setUser({ email: event.target.email.value });
+          router.push("/forgot-password/confirm");
         }}
       >
         <article className="flex flex-col gap-y-7">

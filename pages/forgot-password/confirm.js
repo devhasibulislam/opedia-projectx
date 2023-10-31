@@ -15,9 +15,41 @@
 
 import Button from "@/components/Button";
 import Head from "next/head";
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../_app";
 
 const ConfirmPassword = () => {
+  const { user } = useContext(UserContext);
+  function handleResetPassword(event) {
+    event.preventDefault();
+
+    const userInformation = {
+      email: user.email,
+      password: event.target.password.value,
+      confirmPassword: event.target.confirmPassword.value,
+    };
+
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/reset`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInformation),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Response data:", data);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  }
+
   return (
     <section className="h-screen w-full flex flex-row justify-center items-center">
       <Head>
@@ -25,10 +57,7 @@ const ConfirmPassword = () => {
       </Head>
       <form
         className="max-w-3xl mx-auto px-4 flex flex-col gap-y-2"
-        onSubmit={(event) => {
-          event.preventDefault();
-          router.push(`/signup/${category}`);
-        }}
+        onSubmit={handleResetPassword}
       >
         <article className="flex flex-col gap-y-7">
           <h2 className="text-2xl font-semibold text-center">
