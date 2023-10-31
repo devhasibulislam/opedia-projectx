@@ -25,7 +25,9 @@ const poppins = Poppins({
 
 export default function Home() {
   return (
-    <main className={`${poppins.className} h-screen w-screen overflow-x-hidden`}>
+    <main
+      className={`${poppins.className} h-screen w-screen overflow-x-hidden overflow-y-auto`}
+    >
       <Layout className="">
         {/* Signup Form */}
         <div className="flex flex-col gap-y-6">
