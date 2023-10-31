@@ -26,7 +26,7 @@ const Part01 = () => {
       className="flex flex-col gap-y-2"
       onSubmit={(event) => {
         event.preventDefault();
-        router.push("/signup");
+        router.push("/signup/student-alumni");
       }}
     >
       <h2 className="text-2xl font-medium">Students & Alumni</h2>
