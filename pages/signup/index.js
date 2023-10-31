@@ -16,18 +16,10 @@
 import Layout from "@/components/Layout";
 import Part01 from "@/components/signup/Part01";
 import Part02 from "@/components/signup/Part02";
-import { Poppins } from "next/font/google";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
 
 export default function Home() {
   return (
-    <main
-      className={`${poppins.className} h-screen w-screen overflow-x-hidden overflow-y-auto`}
-    >
+    <>
       <Layout className="">
         {/* Signup Form */}
         <div className="flex flex-col gap-y-6">
@@ -36,6 +28,6 @@ export default function Home() {
           <Part02 />
         </div>
       </Layout>
-    </main>
+    </>
   );
 }
