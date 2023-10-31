@@ -14,12 +14,21 @@
  */
 
 import Button from "@/components/Button";
+import { useRouter } from "next/router";
 import React from "react";
 
 const ResetPassword = () => {
+  const router = useRouter();
+
   return (
     <section className="h-screen w-full flex flex-row justify-center items-center">
-      <section className="max-w-3xl mx-auto px-4 flex flex-col gap-y-8">
+      <form
+        className="max-w-3xl mx-auto px-4 flex flex-col gap-y-8"
+        onSubmit={(event) => {
+          event.preventDefault();
+          router.push("/");
+        }}
+      >
         <article className="flex flex-col gap-y-7">
           <h2 className="text-2xl font-semibold text-center">
             Reset Your Password
@@ -53,7 +62,7 @@ const ResetPassword = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </form>
     </section>
   );
 };
