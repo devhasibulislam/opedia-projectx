@@ -18,13 +18,39 @@ import Button from "../Button";
 import Link from "next/link";
 
 const Part01 = () => {
+  function handleStudentOrAlumniSignin(event) {
+    event.preventDefault();
+
+    const userInformation = {
+      email: event.target.email.value,
+      password: event.target.password.value,
+    };
+
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/signin`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInformation),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Response data:", data);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  }
+
   return (
     <form
       className="flex flex-col gap-y-2"
-      onSubmit={(event) => {
-        event.preventDefault();
-        router.push(`/signup/${category}`);
-      }}
+      onSubmit={handleStudentOrAlumniSignin}
     >
       <h2 className="text-2xl font-medium">Student & Alumni</h2>
 

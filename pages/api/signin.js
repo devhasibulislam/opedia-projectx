@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         .collection("users")
         .find({ email: bodyObject.email });
 
-      res.status(201).json({ success: user.acknowledged, message: "Created!" });
+      res.status(200).json({ success: user.acknowledged, message: "OK!" });
       break;
 
     default:
