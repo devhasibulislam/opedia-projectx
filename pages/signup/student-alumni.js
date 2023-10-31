@@ -38,7 +38,7 @@ const StudentAlumni = () => {
       graduation: event.target.graduation.value,
     };
 
-    fetch(process.env.NEXT_PUBLIC_BASE_URI, {
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const StudentAlumni = () => {
         console.error("Fetch error:", error);
       });
 
-    router.push("/signin");
+    router.push("/signup/confirm");
   }
 
   console.log(user);

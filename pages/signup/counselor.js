@@ -16,21 +16,58 @@
 import Button from "@/components/Button";
 import Layout from "@/components/Layout";
 import Head from "next/head";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useContext } from "react";
+import { UserContext } from "../_app";
 
-const counselor = () => {
+const Counselor = () => {
+  const router = useRouter();
+
+  const { user } = useContext(UserContext);
+  function handleCounselorSignup(event) {
+    event.preventDefault();
+
+    const userInformation = {
+      name: event.target.name.value,
+      company: event.target.company.value,
+      designation: event.target.designation.value,
+      contact: event.target.contact.value,
+      registration: event.target.registration.value,
+      email: user?.email,
+      password: user?.password,
+      confirmPassword: user?.confirmPassword,
+      category: user?.category,
+    };
+
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInformation),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Response data:", data);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+
+    router.push("/signup/confirm");
+  }
+
   return (
     <Layout>
       <Head>
         <title>Sign Up by Counselor Account</title>
       </Head>
-      <form
-        className="flex flex-col gap-y-2"
-        onSubmit={(event) => {
-          event.preventDefault();
-          router.push("/signin");
-        }}
-      >
+      <form className="flex flex-col gap-y-2" onSubmit={handleCounselorSignup}>
         <h2 className="text-2xl font-medium">University Counselor</h2>
 
         {/* Enter Name */}
@@ -45,45 +82,45 @@ const counselor = () => {
         </label>
 
         {/* Enter Company Name */}
-        <label htmlFor="name" className="flex flex-col gap-y-1.5">
+        <label htmlFor="company" className="flex flex-col gap-y-1.5">
           <p className="">Enter your company name*</p>
           <input
             type="text"
-            name="name"
-            id="name"
+            name="company"
+            id="company"
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
 
         {/* Enter Designation */}
-        <label htmlFor="name" className="flex flex-col gap-y-1.5">
+        <label htmlFor="designation" className="flex flex-col gap-y-1.5">
           <p className="">Enter your position name*</p>
           <input
             type="text"
-            name="name"
-            id="name"
+            name="designation"
+            id="designation"
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
 
         {/* Enter Contact Number */}
-        <label htmlFor="name" className="flex flex-col gap-y-1.5">
+        <label htmlFor="contact" className="flex flex-col gap-y-1.5">
           <p className="">Enter your preferred contact number*</p>
           <input
             type="tel"
-            name="name"
-            id="name"
+            name="contact"
+            id="contact"
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
 
         {/* Enter Registration Number */}
-        <label htmlFor="name" className="flex flex-col gap-y-1.5">
+        <label htmlFor="registration" className="flex flex-col gap-y-1.5">
           <p className="">Enter your registration number*</p>
           <input
             type="text"
-            name="name"
-            id="name"
+            name="registration"
+            id="registration"
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
@@ -97,4 +134,4 @@ const counselor = () => {
   );
 };
 
-export default counselor;
+export default Counselor;

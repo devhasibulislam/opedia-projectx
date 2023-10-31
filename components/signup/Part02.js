@@ -13,20 +13,28 @@
  * Date: 31, October 2023
  */
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "../Button";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { UserContext } from "@/pages/_app";
 
 const Part02 = () => {
   const router = useRouter();
   const [category, setCategory] = useState("");
+  const { setUser } = useContext(UserContext);
 
   return (
     <form
       className="flex flex-col gap-y-2"
       onSubmit={(event) => {
         event.preventDefault();
+        setUser({
+          email: event.target.email.value,
+          password: event.target.password.value,
+          confirmPassword: event.target.confirmPassword.value,
+          category,
+        });
         router.push(`/signup/${category}`);
       }}
     >
