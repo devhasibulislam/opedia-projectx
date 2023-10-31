@@ -26,7 +26,7 @@ const Part01 = () => {
       className="flex flex-col gap-y-2"
       onSubmit={(event) => {
         event.preventDefault();
-        router.push("/signup/student-alumni");
+        router.push("/signup");
       }}
     >
       <h2 className="text-2xl font-medium">Students & Alumni</h2>
@@ -45,7 +45,8 @@ const Part01 = () => {
       <div className="flex md:flex-row flex-col items-center justify-between">
         <Button type="submit">Sign Up</Button>
         <p className="font-medium">
-          Already have an account? <Link href="/signup/student-alumni">Sign in</Link>
+          Already have an account?{" "}
+          <Link href="/signin">Sign in</Link>
         </p>
       </div>
     </form>
