@@ -36,75 +36,52 @@ const Employer = () => {
             type="text"
             name="name"
             id="name"
-            placeholder="example@um.edu"
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
 
-        {/* Enter Password */}
-        <label htmlFor="password" className="flex flex-col gap-y-1.5">
-          <p className="">Password*</p>
+        {/* Enter Company Name */}
+        <label htmlFor="name" className="flex flex-col gap-y-1.5">
+          <p className="">Enter your company name*</p>
           <input
-            type="password"
-            name="password"
-            id="password"
+            type="text"
+            name="name"
+            id="name"
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
-
-        {/* Enter Confirm Password */}
-        <label htmlFor="confirmPassword" className="flex flex-col gap-y-1.5">
-          <p className="">Confirm Password*</p>
+        
+        {/* Enter Designation */}
+        <label htmlFor="name" className="flex flex-col gap-y-1.5">
+          <p className="">Enter your position name*</p>
           <input
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
+            type="text"
+            name="name"
+            id="name"
             className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
           />
         </label>
-
-        {/* Enter Institution */}
-        <label htmlFor="institutin" className="flex flex-col gap-y-1.5">
-          <p className="">Current/Past Institution*</p>
-          <select
-            name="institution"
-            id="institution"
-            defaultValue="default"
-            className="form-select bg-transparent text-[#FFFFFF66] text-sm w-full border-2 border-white outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white"
-          >
-            <option value="default" disabled>
-              Select University
-            </option>
-            {universities.map((university) => (
-              <option
-                key={university}
-                value={university}
-                className="text-black"
-              >
-                {university}
-              </option>
-            ))}
-          </select>
+        
+        {/* Enter Contact Number */}
+        <label htmlFor="name" className="flex flex-col gap-y-1.5">
+          <p className="">Enter your preferred contact number*</p>
+          <input
+            type="tel"
+            name="name"
+            id="name"
+            className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
+          />
         </label>
-
-        {/* Enter Graduation */}
-        <label htmlFor="institution" className="flex flex-col gap-y-1.5">
-          <p className="">Graduation Class*</p>
-          <select
-            name="institution"
-            id="institution"
-            defaultValue="default"
-            className="form-select bg-transparent text-[#FFFFFF66] text-sm w-full border-2 border-white outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white"
-          >
-            <option value="default" disabled>
-              Select Graduation Year
-            </option>
-            {years.map((year) => (
-              <option key={year} value={year} className="text-black">
-                {year}
-              </option>
-            ))}
-          </select>
+        
+        {/* Enter Registration Number */}
+        <label htmlFor="name" className="flex flex-col gap-y-1.5">
+          <p className="">Enter your registration number*</p>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="form-input w-full border-2 border-white bg-transparent outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white text-[#FFFFFF66] placeholder:text-[#FFFFFF66]"
+          />
         </label>
 
         {/* Submit Button */}
