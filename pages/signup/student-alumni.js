@@ -19,10 +19,49 @@ import universities from "@/data/universities";
 import years from "@/data/years";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../_app";
 
 const StudentAlumni = () => {
   const router = useRouter();
+  const { user, setUser } = useContext(UserContext);
+
+  function handleStudentAlumniSignup(event) {
+    event.preventDefault();
+
+    const userInformation = {
+      email: user.email,
+      name: event.target.name.value,
+      password: event.target.password.value,
+      confirmPassword: event.target.confirmPassword.value,
+      institution: event.target.institution.value,
+      graduation: event.target.graduation.value,
+    };
+
+    fetch(process.env.NEXT_PUBLIC_BASE_URI, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInformation),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Response data:", data);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+
+    router.push("/signin");
+  }
+
+  console.log(user);
 
   return (
     <Layout>
@@ -31,10 +70,7 @@ const StudentAlumni = () => {
       </Head>
       <form
         className="flex flex-col gap-y-2"
-        onSubmit={(event) => {
-          event.preventDefault();
-          router.push("/signin");
-        }}
+        onSubmit={handleStudentAlumniSignup}
       >
         <h2 className="text-2xl font-medium">Students & Alumni</h2>
 
@@ -97,11 +133,11 @@ const StudentAlumni = () => {
         </label>
 
         {/* Enter Graduation */}
-        <label htmlFor="institutin" className="flex flex-col gap-y-1.5">
+        <label htmlFor="graduation" className="flex flex-col gap-y-1.5">
           <p className="">Graduation Class*</p>
           <select
-            name="institution"
-            id="institution"
+            name="graduation"
+            id="graduation"
             defaultValue="default"
             className="form-select bg-transparent text-[#FFFFFF66] text-sm w-full border-2 border-white outline-none ring-0 focus:outline-none focus:ring-0 focus:border-2 focus:border-white"
           >
