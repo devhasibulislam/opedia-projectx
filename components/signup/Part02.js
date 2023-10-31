@@ -62,8 +62,8 @@ const Part02 = () => {
           <option value="employer" className="text-black">
             Employer
           </option>
-          <option value="counselors" className="text-black">
-            University Counselors
+          <option value="counselor" className="text-black">
+            University Counselor
           </option>
         </select>
       </label>
